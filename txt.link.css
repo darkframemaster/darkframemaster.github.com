@@ -1,0 +1,49 @@
+#head{
+    font-size: 40px;
+    font-family:cursive;
+}
+#coding{
+    font-size: 20px;
+    font-family: cursive;
+}
+#class{
+    font-size:20px;
+    font-family: cursive;
+    padding-left: 4em;
+}
+#def{
+    font-size:20px;
+    font-family: cursive;
+    padding-left: 8em;
+}
+#def_try{
+    font-size:20px;
+    font-family: cursive;
+    padding-left: 12em;
+}
+
+
+@font-face{
+    font-family:myfont;
+    src:url();
+}
+div{
+    font-family: myfont;
+}
+
+
+
+a:link{
+    text-decoration: none;
+/*    background-color: black;*/
+    color:#FF0000;
+}
+a:visited{
+    color:#00FF00;
+}
+a:hover{
+    color:#0000FF;
+}
+a:active{
+    color:#0000FF;
+}
