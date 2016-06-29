@@ -67,7 +67,7 @@ body input[type="text"],body input[type="submit"],body textarea,body input[type=
 .logo p{
 	color:#fff;
  	font-size: 1.2em;
-	font-width: 300;
+	font-weight: 400;
 }
 /*------ Title ENDS---------*/
 
@@ -84,7 +84,7 @@ body input[type="text"],body input[type="submit"],body textarea,body input[type=
 .nav ul li a{
 	color:#fff;
 	font-size: 1.2em;
-	font-width: 300;
+	font-weight: 500;
 }
 .nav ul li a:hover{
 	color:#444;
@@ -111,6 +111,7 @@ body input[type="text"],body input[type="submit"],body textarea,body input[type=
 	color: #fff;
 	margin-bottom: 15px;
 	font-size: 1.3em; 
+	font-weight: 300;
 }
 /*------ BANNER STARTS---------*/
 .banner{
@@ -130,14 +131,16 @@ body input[type="text"],body input[type="submit"],body textarea,body input[type=
 	margin:0;
 	padding:0;
 	font-size:1.2em;
+	font-weight: 300;
 }
 .bannerhead h2 span{
 	color:#aaa;
 	font-size:1.3em;
 }
 .bannerhead p{
-    color:#eee;
+    color:#fff;
 	font-size: 1em;
+	font-weight: 300;
 }
 a.downarrow  span{
  	height:48px;
@@ -161,7 +164,7 @@ a.downarrow{
 	text-align:center;
 	background:#fff;
 	margin: 10px 10px 20px 10px;
-	padding: 10px 0px 20px 0px;
+	padding: 10px 20px 20px 20px;
 }
 .header-section h2{
 	color: #91898D;
@@ -187,22 +190,8 @@ a.downarrow{
 
 /*------Portfolio-Section STARTS---------*/
 .Portfolio{
-	min-height:600px;
+	min-height:200px;
 	background:#eff;
-}
-.Portfolio-section h2{
-	text-align:center;
-	color: #91898D;
-	font-weight: 300;
-	font-size: 2em;
-	padding-top: 0.8em;
-}
-.Portfolio-section span{
-	background:#8C868A;
-	height:1px;
-	width:35%;
-	display:inline-block;
-	vertical-align:middle;
 }
 .Portfolio-section span:nth-child(1){
 	margin-right:10px;
@@ -217,8 +206,8 @@ a.downarrow{
 	padding:0.8em 0;
 }
 .portfolio-grid a{
-	font-size: 1.5em;
-	font-weight: 800;
+	font-size: 1.2em;
+	font-weight: 300;
 	color:#333;
 	text-align:left;
 }
@@ -226,9 +215,13 @@ a.downarrow{
 	color:#aaa;
 	text-decoration:none;
 }
+.portfolio-grid h1{
+	color:
+}
 .portfolio-grid p{
 	margin: 0.5em 0;
-	color: #504A4C;
+	color: #444;
+	font-weight: 300;
 }
 .portfolio-grid img{
 	margin-top: 1em;
