@@ -45,83 +45,99 @@ body input[type="text"],body input[type="submit"],body textarea,body input[type=
 }
 /*------ HEADERBG STARTS---------*/
 .headerbg{
-	background: url(../images/bannerbg.png);
-	min-height: 800px;
+	background-color: #333;
+	max-height: 160px;
 	width: 100%;
 	background-size: cover;
 }
 /*------ HEADER STARTS---------*/
 .header{
 	background: rgba(0, 0, 0, 0.24);
-	padding: 0.6em;
+	max-height: 180px;
+	padding: 20px 0 15px 0;
 }
 /*------ CONTAINER STARTS---------*/
 .container{
 	width:70%;
 }
-/*------ LOGO STARTS---------*/
+/*------ Title STARTS---------*/
 .logo{
 	text-align:center;
 }
 .logo p{
-	color:#F0F0F0;
-	font-weight:bolder;
-    font-size: 1.7em;
+	color:#fff;
+ 	font-size: 1.2em;
+	font-width: 300;
 }
+/*------ Title ENDS---------*/
 
 
-/*------ LOGO ENDS---------*/
 /*------ TOPNAV STARTS---------*/
 .nav{
-	text-align:center;
+	text-align:left;
+	padding: 10px 20px 10px 20px;
 }
 .nav ul li{
 	display: inline-block;
-	margin: 0.5em 0em 0 0.1em;
+	margin: 0em 1em 0 1em;
 }
 .nav ul li a{
-	color:#B5A9B7;
-	font-size: 1.5em;
+	color:#fff;
+	font-size: 1.2em;
+	font-width: 300;
 }
 .nav ul li a:hover{
-	color:gray;
+	color:#444;
 	text-decoration:none;
 }
 /*------ TOPNAV ENDS---------*/
 /*------ HEADER ENDS---------*/
+
+
+
+
+
+/*--------self introduce --------*/
+
+.stage{
+	background:url(../images/stage.jpg);
+	background-size: cover;
+	background-color: #eee;
+	min-height: 400px;
+	padding: 40px 100px 40px 100px;
+}
+.stage h1{
+	text-align: center;
+	color: #fff;
+	margin-bottom: 15px;
+	font-size: 1.3em; 
+}
 /*------ BANNER STARTS---------*/
 .banner{
+	background: rgba(0, 0, 0, 0.5);
 	text-align: center;
-	padding: 1em 0 0 0;
-}
-.banner-info{
+	padding: 20px 20px 20px 20px;
 }
 .bannerlogo{
-	height: 48px;
-	width: 48px;
+	height: 60px;
+	width: 60px;
 }
 .bannerhead{
 	text-align:left;
 }
-/* My name is xue hao*/
 .bannerhead h2{
-	color: #333333;/*#C5B7B8;*/
+	color: #fff;/*#C5B7B8;*/
 	margin:0;
 	padding:0;
-	font-size:1.4em;
+	font-size:1.2em;
 }
 .bannerhead h2 span{
-	color:#333333;
-	font-weight:bolder;
-	font-size:1em;
-}
-.bannerhead h3{
-	color:#333333;	/*#281D24;*/
-	font-weight:bolder;
-    font-size: 1.2em;
+	color:#aaa;
+	font-size:1.3em;
 }
 .bannerhead p{
-    color:#F1E9F2;
+    color:#eee;
+	font-size: 1em;
 }
 a.downarrow  span{
  	height:48px;
@@ -135,23 +151,23 @@ a.downarrow{
 	top: 249px;
 	right: 10%;
 }
-.bannerhead{
-}
-.banner-info{
-}
-/*------ About STARTS---------*/
-.about{
-	color:white;
+
+
+
+
+/*------ List style STARTS---------*/
+.List{
+	color:#ffffff;
 	text-align:center;
-	background:#281D24;
+	background:#fff;
+	margin: 10px 10px 20px 10px;
+	padding: 10px 0px 20px 0px;
 }
 .header-section h2{
 	color: #91898D;
-	font-size: 1.2em;	
-	font-weight: 800;	/* width of a char*/
-	margin-top: 0em;	
+	font-size: 2.0em;	
+	font-weight: 300;	/* width of a char*/	
 	padding: 1em 0 0.8em;
-	margin: 0
 }
 .header-section span{
 	background: #8C868A;
@@ -166,58 +182,25 @@ a.downarrow{
 .header-section span:nth-child(2){
 	margin-left:10px;
 }
-.about span p{
-	color: gray;
-	line-height:1.8em;
-	margin-bottom:1em;
-}
-/* movie_numbers */
-.movie_numbers{
-	margin-bottom:1em;
-	color:#F1F0F0;
-}
-.movie_numbers p{
-	padding-top: 0.5em;
-	line-height: 1.5em;
-	width: 90%;
-	margin: 0 auto;
-}
-/* movie title */
-.movie_numbers a,.movie_numbers span a{
-	color:#aaa;
-	margin-top: 0.3em;
-}
-.movie_numbers a:hover{
-	color:black;
-	text-decoration:none;
-}
-.arrow span{
-	height:48px;
-	width:48px;
-	background:url(../images/bwn.png);
-	display:inline-block;
-}
-a.arrow{
-	margin: 1em 0 2em 0;
-	display: inline-block;
-}
+
+
 
 /*------Portfolio-Section STARTS---------*/
 .Portfolio{
 	min-height:600px;
-	background:#ffffff;
-	text-align:center;
+	background:#eff;
 }
 .Portfolio-section h2{
+	text-align:center;
 	color: #91898D;
-	font-size: 1.2em;
-	padding: 1em 0 0.8em;
-	margin: 0;
+	font-weight: 300;
+	font-size: 2em;
+	padding-top: 0.8em;
 }
 .Portfolio-section span{
 	background:#8C868A;
 	height:1px;
-	width:20%;
+	width:35%;
 	display:inline-block;
 	vertical-align:middle;
 }
@@ -233,32 +216,49 @@ a.arrow{
 	display:inline-block;
 	padding:0.8em 0;
 }
+.portfolio-grid a{
+	font-size: 1.5em;
+	font-weight: 800;
+	color:#333;
+	text-align:left;
+}
+.portfolio-grid a:hover{
+	color:#aaa;
+	text-decoration:none;
+}
 .portfolio-grid p{
 	margin: 0.5em 0;
 	color: #504A4C;
 }
 .portfolio-grid img{
+	margin-top: 1em;
 	width:100%;
 }
-a.rightarrow  span{
-	height:30px;
-	width:30.5px;
-	background:url(../images/rightarw.png);
+a.uparrow  span{
+	height:23px;
+	width:28px;
+	background:url(../images/uparrow.png);
 	display:inline-block;
 }
-a.rightarrow{
-	margin-top:1em;
-	display:inline-block;
+a.uparrow{
+	display: block;
+	position: absolute;
+	top: 15px;
+	right: 5%
 }
 
+
 /*------FOOTER STARTS---------*/
-.footer{
-	background: url(../images/footerbg.jpg);
+.footer-bg{
+	background: url(../images/footer.jpg);
 	position: relative;
 	min-height: 180px;
 	background-size: cover;
-	position: relative;
-	padding: 0 0 3em 0;
+}
+.footer{
+	background: rgba(0,0,0, 0.3);
+	padding-bottom: 20px; 
+	min-height: 180px;
 }
 .contact-section h2{
 	color: #D2D1D1;
@@ -285,7 +285,9 @@ a.rightarrow{
 .social-icons{
 }
 .social-icons a img{
-	margin-right:0.5em;
+	height: 40px;
+	width: 40px;
+	margin-right:1em;
 }
 .social-icons a img:hover{
 	opacity:0.8;
@@ -296,12 +298,12 @@ a.rightarrow{
 	right: 10%;
 	text-align: center;
 }
-
 .up span{
 	height:48px;
 	width:48px;
 	background:url(../images/up.png);
 	display:inline-block;
+	margin-bottom: 20px;
 }
 
 
@@ -323,6 +325,9 @@ a.return_to_git:hover{
 	color:black;
 	text-decoration:none;
 }
+
+
+
  /*----- top-top -----*/
 /*-----grid-system---*/
 .container{
