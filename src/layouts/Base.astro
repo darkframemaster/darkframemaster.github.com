@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import MobileNav from "../components/MobileNav.astro";
+import { identity } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Hao Xue (xuehao) — 北京工程师",
+  description = identity.bio,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Hao Xue",
+  alternateName: "xuehao",
+  description: identity.bio,
+  url: Astro.site?.href,
+  email: `mailto:${identity.email}`,
+  homeLocation: "北京",
+  sameAs: [identity.github],
+};
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#040806" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_CN" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+  </head>
+  <body class="scanlines vignette grid-dense antialiased">
+    <a
+      class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[70] focus:bg-crt-phosphor focus:px-3 focus:py-2 focus:text-crt-bg"
+      href="#content"
+    >
+      跳到正文
+    </a>
+    <canvas id="rain" data-max-columns="18" aria-hidden="true"></canvas>
+    <Header />
+    <main id="content" class="relative z-10">
+      <slot />
+    </main>
+    <Footer />
+    <MobileNav />
+    <div class="h-16 sm:hidden" aria-hidden="true"></div>
+    <script>
+      import "../scripts/terminal.ts";
+    </script>
+  </body>
+</html>

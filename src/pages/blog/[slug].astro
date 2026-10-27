@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from "astro:content";
+import Prompt from "../../components/Prompt.astro";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={`${post.data.title} — Hao Xue`} description={post.data.description}>
+  <article class="mx-auto max-w-site px-3 py-12 sm:px-8 sm:py-16">
+    <Prompt cmd={`sed -n '1,200p' ./notes/${post.id}.mdx`} />
+    <h1 class="mt-2 text-xl text-crt-bright sm:text-2xl">{post.data.title}</h1>
+    <p class="mt-2 text-[11px] text-crt-dim">{post.data.pubDate.toISOString().slice(0, 10)}</p>
+    <div class="about-copy mt-6 max-w-prose text-sm leading-relaxed text-crt-soft">
+      <Content />
+    </div>
+    <p class="mt-8">
+      <a class="rev px-1 text-sm text-crt-phosphor" href="/blog/">cd ./notes</a>
+    </p>
+  </article>
+</Base>

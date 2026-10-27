@@ -1,0 +1,34 @@
+---
+import { identity, nav, sectionHref } from "../data/site";
+---
+
+<header class="sticky top-0 z-40 border-b border-crt-line bg-crt-bg/92 backdrop-blur-sm">
+  <div class="mx-auto max-w-site px-3 sm:px-8">
+    <div class="ascii-bar py-1 select-none" aria-hidden="true"></div>
+    <div class="flex items-center justify-between gap-3 pb-2.5">
+      <div class="min-w-0 text-[11px] sm:text-xs">
+        <span class="prompt prompt-live">root@xuehao</span><span class="muted">:</span><span class="text-crt-soft">~</span><span class="prompt">#</span>
+        <span class="hidden text-crt-dim sm:inline">
+          tty1 pts/0 · matrix-mode on · <time id="status-clock" hidden>--:--:--</time>
+        </span>
+      </div>
+      <nav class="hidden gap-1 text-[11px] sm:flex" aria-label="页面分区">
+        {
+          nav.map((item) => (
+            <a class="rev px-2 py-1 text-crt-soft transition-colors" href={sectionHref(Astro.url.pathname, item.href)}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <a
+        href={identity.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-term rev shrink-0 border border-crt-line px-2 py-1 text-[10px] text-crt-soft transition-colors"
+      >
+        git clone↗
+      </a>
+    </div>
+  </div>
+</header>

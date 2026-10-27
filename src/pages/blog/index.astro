@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Prompt from "../../components/Prompt.astro";
+import Base from "../../layouts/Base.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Base title="笔记 — Hao Xue" description="长文还没放进来。名片、作品和联系方式在首页。">
+  <section class="mx-auto max-w-site px-3 py-12 sm:px-8 sm:py-16">
+    <Prompt cmd="ls ./notes" />
+    <h1 class="mt-2 text-xl text-crt-bright sm:text-2xl">
+      笔记 <span class="text-xs text-crt-dim"># blog</span>
+    </h1>
+    {
+      posts.length === 0 ? (
+        <div class="tty-frame mt-6 max-w-prose bg-crt-panel p-4 text-sm leading-relaxed text-crt-soft shadow-glow-sm">
+          <p>长文还没放进来。这一期先把名片、作品和联系方式放好，笔记目录留到二期。</p>
+          <p class="mt-4">
+            <a class="rev px-1 text-crt-phosphor" href="/#home">
+              cd ./home
+            </a>
+          </p>
+        </div>
+      ) : (
+        <ul class="mt-6 max-w-prose space-y-3">
+          {posts.map((post) => (
+            <li class="tty-frame bg-crt-panel p-4 shadow-glow-sm">
+              <a class="rev text-crt-bright" href={`/blog/${post.id}/`}>
+                {post.data.title}
+              </a>
+              <p class="mt-2 text-sm text-crt-soft">{post.data.description}</p>
+              <p class="mt-2 text-[11px] text-crt-dim">{post.data.pubDate.toISOString().slice(0, 10)}</p>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</Base>

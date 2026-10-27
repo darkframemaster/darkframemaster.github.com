@@ -1,0 +1,11 @@
+---
+interface Props {
+  cmd: string;
+  class?: string;
+}
+const { cmd, class: className = "" } = Astro.props;
+---
+
+<p class:list={["text-[10px] text-crt-phosphor", className]}>
+  <span class="prompt">$</span> <span class="cmd">{cmd}</span>
+</p>

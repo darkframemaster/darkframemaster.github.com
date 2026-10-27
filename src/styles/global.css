@@ -1,0 +1,246 @@
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+@import "@fontsource/ibm-plex-mono/700.css";
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "IBM Plex Mono", "Sarasa Mono SC", "Noto Sans Mono CJK SC", "Source Han Mono SC", "PingFang SC", "Microsoft YaHei", ui-monospace, monospace;
+  --color-crt-bg: #040806;
+  --color-crt-panel: #08110c;
+  --color-crt-line: #1f4a32;
+  --color-crt-dim: #2f5c40;
+  --color-crt-soft: #6fbf8a;
+  --color-crt-phosphor: #33ff77;
+  --color-crt-bright: #c8ffd8;
+  --shadow-glow: 0 0 0 1px rgba(51, 255, 119, 0.18), 0 0 28px rgba(51, 255, 119, 0.1);
+  --shadow-glow-sm: 0 0 0 1px rgba(51, 255, 119, 0.12), 0 0 16px rgba(51, 255, 119, 0.07);
+  --max-width-site: 68rem;
+  --max-width-prose: 42rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-mono);
+    background: #040806;
+    color: #6fbf8a;
+    overflow-x: clip;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: #33ff77;
+    color: #040806;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+    scroll-margin-bottom: 4.5rem;
+  }
+}
+
+/* I7 scanline drift — static lines stay, motion stops under reduced-motion */
+.scanlines::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 1px,
+    rgba(0, 0, 0, 0.18) 2px
+  );
+  opacity: 0.45;
+  animation: scan-drift 0.12s linear infinite;
+}
+
+.vignette::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.grid-dense {
+  background-image:
+    linear-gradient(rgba(51, 255, 119, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 255, 119, 0.045) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+#rain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+/* I1 block cursor */
+.blink::after {
+  content: "█";
+  margin-left: 1px;
+  color: #33ff77;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes scan-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+/* I3 prompt breathe */
+@keyframes prompt-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.prompt-live {
+  animation: prompt-pulse 1.2s ease-in-out infinite;
+}
+
+.prompt {
+  color: #33ff77;
+}
+
+.cmd {
+  color: #c8ffd8;
+}
+
+.muted {
+  color: #2f5c40;
+}
+
+.tty-frame {
+  border: 1px solid #1f4a32;
+  box-shadow:
+    0 0 0 1px rgba(51, 255, 119, 0.08),
+    inset 0 0 40px rgba(51, 255, 119, 0.03);
+}
+
+.ascii-bar {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #2f5c40;
+}
+
+.ascii-bar::before {
+  content: "════════════════════════════════════════════════════════════════════════════════";
+}
+
+.ascii-rule::before {
+  content: "────────────────────────────────────────";
+}
+
+/* I5 reverse-video. Resting links keep a light phosphor glow. */
+a.rev {
+  text-shadow: 0 0 8px rgba(51, 255, 119, 0.28);
+}
+
+a.rev:hover,
+a.rev:focus-visible {
+  background: #33ff77;
+  color: #040806;
+  text-shadow: none;
+}
+
+a:focus-visible {
+  outline: 1px solid #33ff77;
+  outline-offset: 2px;
+}
+
+/* I6 terminal button press */
+.btn-term:active {
+  transform: translateY(1px);
+  filter: brightness(1.15);
+}
+
+#status-clock {
+  font-variant-numeric: tabular-nums;
+}
+
+.about-copy p {
+  margin: 0;
+}
+
+.about-copy p + p {
+  margin-top: 0.75rem;
+}
+
+.about-copy a {
+  color: #33ff77;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-copy a:hover,
+.about-copy a:focus-visible {
+  background: #33ff77;
+  color: #040806;
+  text-shadow: none;
+}
+
+.about-copy ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* I7: keep the scanline texture, stop the drift */
+  .scanlines::before {
+    animation: none;
+  }
+
+  /* I3: hold the prompt at full opacity */
+  .prompt-live {
+    animation: none;
+    opacity: 1;
+  }
+
+  /* I1: leave a steady block, no blink */
+  .blink::after {
+    animation: none;
+    opacity: 1;
+  }
+
+  /* I8 */
+  #rain {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+---
+import Prompt from "../components/Prompt.astro";
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="未找到 — Hao Xue" description="没有这个路径。">
+  <section class="mx-auto max-w-site px-3 py-16 sm:px-8">
+    <Prompt cmd="cd ./missing" />
+    <h1 class="mt-2 text-xl text-crt-bright">没有这个路径。</h1>
+    <p class="mt-4 text-sm text-crt-soft">地址对不上现有页面。</p>
+    <p class="mt-6">
+      <a class="btn-term rev border border-crt-line px-3 py-2 text-[11px] text-crt-phosphor" href="/">
+        $ cd ./home
+      </a>
+    </p>
+  </section>
+</Base>

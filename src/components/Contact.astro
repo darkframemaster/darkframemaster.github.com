@@ -1,0 +1,39 @@
+---
+import { identity } from "../data/site";
+import Prompt from "./Prompt.astro";
+---
+
+<section id="contact" class="border-t border-crt-line/70">
+  <div class="mx-auto max-w-site px-3 py-12 sm:px-8 sm:py-16">
+    <div class="tty-frame bg-crt-panel p-4 shadow-glow sm:p-6">
+      <Prompt cmd="./contact.sh --human" />
+      <h2 class="mt-2 text-xl text-crt-bright sm:text-2xl">
+        联系 <span class="text-xs text-crt-dim"># mail &amp; git</span>
+      </h2>
+      <p class="mt-4 max-w-prose text-sm text-crt-soft">{identity.contact}</p>
+      <ul class="mt-5 flex flex-col gap-2 sm:flex-row">
+        <li>
+          <a
+            href={identity.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-term rev inline-flex items-center gap-3 border border-crt-line px-4 py-3 text-sm text-crt-bright transition-colors"
+          >
+            <span class="text-[10px] text-crt-dim">$ gh</span>
+            {identity.githubHandle}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`mailto:${identity.email}`}
+            class="btn-term rev inline-flex items-center gap-3 border border-crt-line px-4 py-3 text-sm break-all text-crt-bright transition-colors"
+          >
+            <span class="text-[10px] text-crt-dim">$ mail</span>
+            {identity.email}
+          </a>
+        </li>
+      </ul>
+      <p class="mt-6 text-[11px] text-crt-dim">$ logout<span class="blink" aria-hidden="true"></span></p>
+    </div>
+  </div>
+</section>
