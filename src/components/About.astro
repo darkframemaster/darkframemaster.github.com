@@ -10,15 +10,11 @@ import Prompt from "./Prompt.astro";
     <h2 class="mt-2 text-xl text-crt-bright sm:text-2xl">
       关于 <span class="text-xs text-crt-dim"># readme</span>
     </h2>
-    <pre
-      class="mt-4 max-w-prose overflow-x-auto text-[11px] leading-5 text-crt-dim sm:text-xs">┌─ about ─────────────────────────────────────┐
-│                                             │</pre>
     <div
-      class="about-copy max-w-prose space-y-3 border border-t-0 border-crt-line bg-crt-panel/80 px-4 py-3 text-sm leading-relaxed text-crt-soft shadow-glow-sm"
+      class="about-copy tty-frame mt-4 max-w-prose space-y-3 bg-crt-panel/80 px-4 py-3 text-sm leading-relaxed text-crt-soft shadow-glow-sm"
     >
       <AboutCopy />
     </div>
-    <pre class="max-w-prose text-[11px] leading-5 text-crt-dim sm:text-xs">└─────────────────────────────────────────────┘</pre>
     <div class="mt-6 grid max-w-prose gap-3 sm:grid-cols-2">
       {
         aboutFacts.map((fact) => (
