@@ -119,13 +119,13 @@ function startRain(): void {
     height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
-    font = Math.max(12, Math.floor(width / 70));
+    font = Math.max(14, Math.floor(width / 70));
     columns = Math.min(maxColumns, Math.max(1, Math.floor(width / (font * 2.2))));
     drops = Array.from({ length: columns }, () => Math.random() * -40);
   };
 
   const draw = () => {
-    context.fillStyle = "rgba(4, 8, 6, 0.12)";
+    context.fillStyle = "rgba(4, 8, 6, 0.07)";
     context.fillRect(0, 0, width, height);
     context.font = `${font}px "IBM Plex Mono", monospace`;
     const gap = width / columns;
@@ -133,10 +133,10 @@ function startRain(): void {
       const glyph = GLYPHS[(Math.random() * GLYPHS.length) | 0] ?? "0";
       const x = index * gap + gap * 0.3;
       const y = (drops[index] ?? 0) * font;
-      context.fillStyle = index % 5 === 0 ? "rgba(51,255,119,0.55)" : "rgba(26,143,74,0.35)";
+      context.fillStyle = index % 5 === 0 ? "rgba(51,255,119,0.82)" : "rgba(26,143,74,0.52)";
       context.fillText(glyph, x, y);
       if (y > height && Math.random() > 0.975) drops[index] = 0;
-      drops[index] = (drops[index] ?? 0) + 0.35 + Math.random() * 0.25;
+      drops[index] = (drops[index] ?? 0) + 0.55 + Math.random() * 0.35;
     }
   };
 

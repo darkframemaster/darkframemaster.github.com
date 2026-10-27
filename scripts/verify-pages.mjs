@@ -83,7 +83,7 @@ const script = read("src/scripts/terminal.ts");
 for (const text of [
   "prefers-reduced-motion: reduce",
   "animation: none",
-  "opacity: 0.22",
+  "opacity: 0.40",
   "#rain",
 ]) {
   if (!css.includes(text)) fail(`global.css missing ${text}`);
@@ -102,7 +102,7 @@ for (const text of [
 
 const builtCss = distFiles.filter((file) => file.endsWith(".css")).map((file) => readFileSync(file, "utf8")).join("\n");
 if (!builtCss.includes("prefers-reduced-motion")) fail("built CSS dropped the reduced-motion query");
-if (!/opacity:\s*0?\.22/.test(builtCss)) fail("built CSS is missing rain opacity 0.22");
+if (!/opacity:\s*0?\.40?(?!\d)/.test(builtCss)) fail("built CSS is missing rain opacity 0.40");
 
 const clientCode = distFiles
   .filter((file) => file.endsWith(".js") || file.endsWith(".html"))

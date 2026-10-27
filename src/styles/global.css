@@ -59,9 +59,9 @@
     to bottom,
     rgba(0, 0, 0, 0) 0px,
     rgba(0, 0, 0, 0) 1px,
-    rgba(0, 0, 0, 0.18) 2px
+    rgba(0, 0, 0, 0.11) 2px
   );
-  opacity: 0.45;
+  opacity: 0.30;
   animation: scan-drift 0.12s linear infinite;
 }
 
@@ -71,13 +71,13 @@
   position: fixed;
   inset: 0;
   z-index: 55;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.38) 100%);
 }
 
 .grid-dense {
   background-image:
-    linear-gradient(rgba(51, 255, 119, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(51, 255, 119, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(51, 255, 119, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 255, 119, 0.075) 1px, transparent 1px);
   background-size: 14px 14px;
 }
 
@@ -87,7 +87,7 @@
   z-index: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.22;
+  opacity: 0.40;
   pointer-events: none;
 }
 
@@ -121,7 +121,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.45;
+    opacity: 0.68;
   }
 }
 
@@ -131,6 +131,7 @@
 
 .prompt {
   color: #33ff77;
+  text-shadow: 0 0 10px rgba(51, 255, 119, 0.35);
 }
 
 .cmd {

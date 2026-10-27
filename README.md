@@ -52,4 +52,4 @@ pubDate: 2026-10-27
 
 ## 栈
 
-Astro 5、TypeScript、Tailwind CSS、MDX。动效优先 CSS。JS 只负责打字机、顶栏时钟，以及最多 18 列、透明度约 0.22 的雨幕。`prefers-reduced-motion: reduce` 会关掉雨幕和扫描线漂移、提示符呼吸、光标闪烁，打字机直接显示全文。
+Astro 5、TypeScript、Tailwind CSS、MDX。动效优先 CSS。JS 只负责打字机、顶栏时钟，以及最多 18 列、透明度约 0.40 的雨幕。`prefers-reduced-motion: reduce` 会关掉雨幕和扫描线漂移、提示符呼吸、光标闪烁，打字机直接显示全文。
