@@ -1,0 +1,16 @@
+# build scratch (Pages serves the synced root output, not this folder)
+dist/
+.astro/
+
+node_modules/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.env
+.env.production
+
+.DS_Store
+.idea/

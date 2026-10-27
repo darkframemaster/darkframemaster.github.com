@@ -1,0 +1,19 @@
+---
+import { nav, sectionHref } from "../data/site";
+---
+
+<nav
+  class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-crt-line bg-crt-bg/95 backdrop-blur-sm pb-[env(safe-area-inset-bottom)] sm:hidden"
+  aria-label="页面分区"
+>
+  {
+    nav.map((item) => (
+      <a
+        class="rev flex min-h-12 items-center justify-center px-1 text-[15px] font-medium text-crt-phosphor"
+        href={sectionHref(Astro.url.pathname, item.href)}
+      >
+        {item.mobile}
+      </a>
+    ))
+  }
+</nav>

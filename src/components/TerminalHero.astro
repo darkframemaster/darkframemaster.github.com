@@ -1,0 +1,55 @@
+---
+import { heroCommands, identity } from "../data/site";
+
+const tones: Record<(typeof heroCommands)[number]["tone"], string> = {
+  primary: "border-crt-phosphor/80 text-crt-phosphor",
+  soft: "border-crt-line text-crt-soft",
+  dim: "border-crt-line text-crt-dim",
+};
+---
+
+<section id="home" class="mx-auto max-w-site px-3 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-14">
+  <div class="tty-frame overflow-hidden rounded-sm bg-crt-panel shadow-glow">
+    <div class="flex items-center justify-between gap-3 border-b border-crt-line bg-black/40 px-3 py-1.5">
+      <div class="flex min-w-0 items-center gap-1.5">
+        <span class="h-2 w-2 shrink-0 rounded-full bg-crt-dim" aria-hidden="true"></span>
+        <span class="h-2 w-2 shrink-0 rounded-full bg-crt-dim" aria-hidden="true"></span>
+        <span class="h-2 w-2 shrink-0 rounded-full bg-crt-phosphor/70" aria-hidden="true"></span>
+        <span class="ml-2 truncate text-[10px] text-crt-dim">xuehao@matrix:~ — bash — 80×24</span>
+      </div>
+    </div>
+    <div class="space-y-2 p-4 text-[12px] leading-relaxed sm:p-6 sm:text-[13px]">
+      <p class="muted"># boot sequence — ok</p>
+      <p><span class="prompt">$</span> <span class="cmd">uname -a</span></p>
+      <p class="text-crt-soft">Linux xuehao 6.x · Beijing · engineer-portfolio</p>
+      <p><span class="prompt">$</span> <span class="cmd">cat ~/identity.txt</span></p>
+      <p class="sr-only">{identity.roleSpoken}</p>
+      <p id="tw-role" class="min-h-[1rem] pt-1 text-[10px] uppercase tracking-[0.28em] text-crt-dim" aria-hidden="true">{identity.role}</p>
+      <h1 class="min-h-10 text-2xl font-semibold text-crt-bright sm:min-h-12 sm:text-4xl" translate="no">
+        <span class="sr-only">{identity.name}</span>
+        <span id="tw-name" aria-hidden="true">{identity.name}</span><span class="blink" aria-hidden="true"></span>
+      </h1>
+      <p class="sr-only">{identity.bio}</p>
+      <p id="tw-bio" class="max-w-prose min-h-14 pt-1 text-crt-soft sm:min-h-12" aria-hidden="true">{identity.bio}</p>
+      <p class="pt-3 muted"># try:</p>
+      <div class="flex flex-wrap gap-2">
+        {
+          heroCommands.map((command) => (
+            <a
+              href={command.href}
+              class:list={[
+                "btn-term rev border px-3 py-2 text-[11px] transition-colors",
+                tones[command.tone],
+              ]}
+            >
+              {command.label}
+            </a>
+          ))
+        }
+      </div>
+      <p class="pt-2 text-[11px] text-crt-dim">
+        hint: hover links for reverse-video · scroll or use ./nav<span class="blink" aria-hidden="true"></span>
+      </p>
+    </div>
+  </div>
+</section>

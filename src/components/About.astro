@@ -1,0 +1,33 @@
+---
+import AboutCopy from "../copy/about.mdx";
+import { aboutFacts } from "../data/site";
+import Prompt from "./Prompt.astro";
+---
+
+<section id="about" class="border-t border-crt-line/70">
+  <div class="mx-auto max-w-site px-3 py-12 sm:px-8 sm:py-16">
+    <Prompt cmd="sed -n '1,20p' ./about.md" />
+    <h2 class="mt-2 text-xl text-crt-bright sm:text-2xl">
+      关于 <span class="text-xs text-crt-dim"># readme</span>
+    </h2>
+    <pre
+      class="mt-4 max-w-prose overflow-x-auto text-[11px] leading-5 text-crt-dim sm:text-xs">┌─ about ─────────────────────────────────────┐
+│                                             │</pre>
+    <div
+      class="about-copy max-w-prose space-y-3 border border-t-0 border-crt-line bg-crt-panel/80 px-4 py-3 text-sm leading-relaxed text-crt-soft shadow-glow-sm"
+    >
+      <AboutCopy />
+    </div>
+    <pre class="max-w-prose text-[11px] leading-5 text-crt-dim sm:text-xs">└─────────────────────────────────────────────┘</pre>
+    <div class="mt-6 grid max-w-prose gap-3 sm:grid-cols-2">
+      {
+        aboutFacts.map((fact) => (
+          <div class="tty-frame bg-crt-panel p-3 shadow-glow-sm">
+            <Prompt cmd={fact.cmd} />
+            <p class="mt-1 text-sm text-crt-phosphor">{fact.value}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import { early, featured } from "../data/site";
+import Prompt from "./Prompt.astro";
+---
+
+<section id="projects" class="border-t border-crt-line/70">
+  <div class="mx-auto max-w-site px-3 py-12 sm:px-8 sm:py-16">
+    <Prompt cmd="ls -la ~/repos --sort=featured" />
+    <h2 class="mt-2 text-xl text-crt-bright sm:text-2xl">
+      项目 <span class="text-xs text-crt-dim"># repositories</span>
+    </h2>
+    <p class="mt-2 max-w-sm text-xs text-crt-soft">精选近期作品；早期与 fork 项目以更轻的样式排布。</p>
+
+    <div class="mt-6 space-y-3">
+      {
+        featured.map((project) => (
+          <article class="tty-frame bg-crt-panel p-4 shadow-glow">
+            <p class="text-[10px] text-crt-dim">{project.perm}</p>
+            <div class="mt-1 flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="text-base text-crt-bright">{project.name}</h3>
+                  {project.badges.map((badge) => (
+                    <span class:list={["text-[10px]", badge === "featured" ? "text-crt-phosphor" : "text-crt-dim"]}>
+                      [{badge}]
+                    </span>
+                  ))}
+                </div>
+                <p class="mt-2 max-w-2xl text-xs leading-relaxed text-crt-soft sm:text-sm">{project.description}</p>
+              </div>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rev shrink-0 px-1 text-[11px] text-crt-dim"
+                aria-label={`在 GitHub 打开 ${project.name}`}
+              >
+                open↗
+              </a>
+            </div>
+            <p class="mt-3 text-[11px] text-crt-dim"># tags: {project.tags.join(" · ")}</p>
+          </article>
+        ))
+      }
+
+      <Prompt class="pt-2" cmd="ls ~/repos/early" />
+      <div class="grid gap-2 sm:grid-cols-3">
+        {
+          early.map((project) => (
+            <article class="border border-dashed border-crt-line/90 bg-black/30 p-3">
+              <div class="flex justify-between gap-2 text-[10px] text-crt-dim">
+                <span>{project.perm}</span>
+                <span>{project.meta}</span>
+              </div>
+              <h3 class="mt-1 text-sm text-crt-soft">{project.name}</h3>
+              <p class="mt-2 text-[11px] leading-relaxed text-crt-soft">{project.description}</p>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rev mt-2 inline-block px-1 text-[11px] text-crt-dim"
+                aria-label={`在 GitHub 打开 ${project.name}`}
+              >
+                open↗
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
